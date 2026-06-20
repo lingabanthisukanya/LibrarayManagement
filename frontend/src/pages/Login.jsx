@@ -22,7 +22,7 @@ function Login()
         };
         try{
             const response=await axios.post(
-                `{API_URL}/api/login`,loginData
+                `${API_URL}/api/login`,loginData
             );
             localStorage.setItem("token",response.data.token);
             localStorage.setItem("user",JSON.stringify(response.data.user));

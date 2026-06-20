@@ -37,7 +37,7 @@ function EditBook() {
 
         try {
             const response = await axios.put(
-                 `${API_URL}api/books/${id}`,
+                 `${API_URL}/api/books/${id}`,
                 {
                     coverImage,
                     title,

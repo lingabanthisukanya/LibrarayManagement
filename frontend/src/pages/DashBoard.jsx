@@ -28,7 +28,7 @@ function DashBoard() {
     const fetchNotices = async () => {
   try {
     const res = await axios.get(
-      `${API_URL}/api/login/api/notices`
+      `${API_URL}/api/notices`
     );
     setNotices(res.data);
   } catch (err) {
@@ -39,7 +39,7 @@ function DashBoard() {
     const fetchBookCount = async () => {
       try {
         const response = await axios.get(
-        `${API_URL}/api/login/api/book-count`
+        `${API_URL}/api/book-count`
         );
   
         setBookCount(response.data.totalBooks);
@@ -50,7 +50,7 @@ function DashBoard() {
     const fetchIssuedBooks = async () => {
         try {
           const res = await axios.get(
-          `${API_URL}/api/login/api/issues`
+          `${API_URL}/api/issues`
           );
 
           setIssuedBooks(res.data);
@@ -62,7 +62,7 @@ function DashBoard() {
 const fetchIssuedCount = async () => {
         try {
           const res = await axios.get(
-            `${API_URL}/api/login/api/issues-count`
+            `${API_URL}/api/issues-count`
           );
 
           setIssuedCount(res.data.totalIssued);
