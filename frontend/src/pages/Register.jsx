@@ -9,6 +9,9 @@ function Register() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
+
+  const API_URL = import.meta.env.VITE_API_URL;
+
   const handleRegister = async (e) => {
     e.preventDefault();
     if(password!==confirmPassword)
@@ -19,7 +22,7 @@ function Register() {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/register",
+        `${API_URL}/api/register`,
         {
           fullName,
           email,

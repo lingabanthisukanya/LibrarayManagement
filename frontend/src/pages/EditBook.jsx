@@ -11,6 +11,8 @@ function EditBook() {
     const [coverImage, setCoverImage] = useState("");
     const [title, setTitle] = useState("");
     const [author, setAuthor] = useState("");
+     const API_URL = import.meta.env.VITE_API_URL;
+  
 
     useEffect(() => {
         fetchBook();
@@ -19,7 +21,7 @@ function EditBook() {
     const fetchBook = async () => {
         try {
             const response = await axios.get(
-                `http://localhost:5000/api/books/${id}`
+                 `${API_URL}/api/books/${id}`
             );
 
             setCoverImage(response.data.coverImage);
@@ -35,7 +37,7 @@ function EditBook() {
 
         try {
             const response = await axios.put(
-                `http://localhost:5000/api/books/${id}`,
+                 `${API_URL}api/books/${id}`,
                 {
                     coverImage,
                     title,

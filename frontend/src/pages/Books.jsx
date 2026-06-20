@@ -6,11 +6,11 @@ import "./Books.css";
 
 function Books() {
     const [books, setBooks] = useState([]);
-
+const API_URL = import.meta.env.VITE_API_URL;
     const fetchBooks = async () => {
         try {
             const response = await axios.get(
-                "http://localhost:5000/api/books"
+                `${API_URL}/api/books`
             );
             setBooks(response.data);
         } catch (error) {
@@ -35,7 +35,7 @@ const handleEdit = (book) => {
 
         try {
             const response = await axios.delete(
-                `http://localhost:5000/api/books/${id}`
+                `${API_URL}/api/books/${id}`
             );
 
             alert(response.data.message);

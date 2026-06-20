@@ -9,6 +9,7 @@ function Profile() {
     totalBooks: 0,
     issuedBooks: 0,
   });
+   const API_URL = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
     fetchStats();
@@ -16,8 +17,8 @@ function Profile() {
   const fetchStats = async () => {
   try {
     const [bookRes, issueRes] = await Promise.all([
-      axios.get("http://localhost:5000/api/book-count"),
-      axios.get("http://localhost:5000/api/issues-count"),
+      axios.get(`${API_URL}/api/book-count`),
+      axios.get(`${API_URL}/api/issues-count`),
     ]);
 
     setStats({

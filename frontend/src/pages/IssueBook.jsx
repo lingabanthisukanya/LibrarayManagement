@@ -8,13 +8,15 @@ function IssueBook() {
 
             const [studentName, setStudentName] = useState("");
             const [bookTitle, setBookTitle] = useState("");
+             const API_URL = import.meta.env.VITE_API_URL;
+  
 
            const issueBook = async (e) => {
                 e.preventDefault();
 
                 try {
                     const res = await axios.post(
-                    "http://localhost:5000/api/issues",
+                    `${API_URL}/api/issues`,
                     {
                         studentName,
                         bookTitle,

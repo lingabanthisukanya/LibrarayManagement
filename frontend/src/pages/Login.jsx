@@ -6,7 +6,7 @@ import bgImage from '../assets/lib6.png';
 
 import { useNavigate } from "react-router-dom";
 
-
+const API_URL = import.meta.env.VITE_API_URL;
 function Login()
 
 {
@@ -22,7 +22,7 @@ function Login()
         };
         try{
             const response=await axios.post(
-                "http://localhost:5000/api/login",loginData
+                `{API_URL}/api/login`,loginData
             );
             localStorage.setItem("token",response.data.token);
             localStorage.setItem("user",JSON.stringify(response.data.user));

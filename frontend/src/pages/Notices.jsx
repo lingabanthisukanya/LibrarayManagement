@@ -5,6 +5,7 @@ import axios from "axios";
 function Notices() {
   const [message, setMessage] = useState("");
   const [notices, setNotices] = useState([]);
+  const API_URL = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
     fetchNotices();
@@ -13,7 +14,7 @@ function Notices() {
   const fetchNotices = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:5000/api/notices"
+        `${API_URL}/api/notices`
       );
       setNotices(res.data);
     } catch (err) {
@@ -24,7 +25,7 @@ function Notices() {
   const addNotice = async () => {
     try {
       await axios.post(
-        "http://localhost:5000/api/notices",
+        `${API_URL}/api/notices`,
         { message }
       );
 
@@ -38,7 +39,7 @@ function Notices() {
   const deleteNotice = async (id) => {
     try {
       await axios.delete(
-        `http://localhost:5000/api/notices/${id}`
+        `${API_URL}/api/notices/${id}`
       );
 
       fetchNotices();

@@ -15,6 +15,9 @@ function DashBoard() {
     const [issuedBooks, setIssuedBooks] = useState([]);
     const [issuedCount, setIssuedCount] = useState(0);
     const [notices, setNotices] = useState([]);
+
+
+    const API_URL = import.meta.env.VITE_API_URL;
   
     useEffect(() => {
       fetchBookCount();
@@ -25,7 +28,7 @@ function DashBoard() {
     const fetchNotices = async () => {
   try {
     const res = await axios.get(
-      "http://localhost:5000/api/notices"
+      `${API_URL}/api/login/api/notices`
     );
     setNotices(res.data);
   } catch (err) {
@@ -36,7 +39,7 @@ function DashBoard() {
     const fetchBookCount = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5000/api/book-count"
+        `${API_URL}/api/login/api/book-count`
         );
   
         setBookCount(response.data.totalBooks);
@@ -47,7 +50,7 @@ function DashBoard() {
     const fetchIssuedBooks = async () => {
         try {
           const res = await axios.get(
-            "http://localhost:5000/api/issues"
+          `${API_URL}/api/login/api/issues`
           );
 
           setIssuedBooks(res.data);
@@ -59,7 +62,7 @@ function DashBoard() {
 const fetchIssuedCount = async () => {
         try {
           const res = await axios.get(
-            "http://localhost:5000/api/issues-count"
+            `${API_URL}/api/login/api/issues-count`
           );
 
           setIssuedCount(res.data.totalIssued);
